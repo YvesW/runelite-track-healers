@@ -30,7 +30,7 @@ import java.util.Objects;
 import static net.runelite.client.RuneLite.LOGS_DIR;
 
 @PluginDescriptor(
-        name = "Healer Tracker",
+        name = "Track Healers",
         description = "Just a quick plugin to track healers.",
         tags = {"minigame", "tick", "logger", "tracker", "healer"}
 )
