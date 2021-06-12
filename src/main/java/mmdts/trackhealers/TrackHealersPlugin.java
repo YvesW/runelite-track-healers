@@ -112,7 +112,7 @@ public class TrackHealersPlugin extends Plugin
     @Subscribe
     public void onGameTick(GameTick tick) throws IOException
     {
-        if (!inWave || role != Role.HEALER)
+        if (!inWave || (role != Role.HEALER && role != Role.DEFENDER))
         {
             return;
         }
