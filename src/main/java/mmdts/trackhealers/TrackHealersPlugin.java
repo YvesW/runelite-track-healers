@@ -191,7 +191,7 @@ public class TrackHealersPlugin extends Plugin
 
             WorldPoint loc = npc.getWorldLocation();
             Actor interacting = npc.getInteracting();
-            String firstText = "_";
+            char firstText = '_';
 
             str
                     .append("|")
@@ -204,13 +204,15 @@ public class TrackHealersPlugin extends Plugin
 
             if (interacting instanceof Player)
             {
-                firstText = Long.toString(((Player) interacting).getPlayerComposition().getEquipmentId(KitType.JAW));
+                firstText = Role.getRoleFromJawId(
+                        ((Player) interacting).getPlayerComposition().getEquipmentId(KitType.JAW)
+                );
                 loc = interacting.getWorldLocation();
             }
 
             if (interacting instanceof NPC)
             {
-                firstText = "r";
+                firstText = 'r';
                 loc = interacting.getWorldLocation();
             }
 
@@ -219,7 +221,7 @@ public class TrackHealersPlugin extends Plugin
                     .append(firstText)
             ;
 
-            if (!Objects.equals(firstText, "_"))
+            if (firstText != '_')
             {
                 str
                         .append(",")
